@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  rate: any = 0;
   title = 'angular-rating-bar';
+  abc(event: any) {
+    this.rate = event;
+  }
 }

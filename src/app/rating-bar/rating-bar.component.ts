@@ -7,6 +7,7 @@ import {IRatingUnit} from '../i-rating-unit';
   styleUrls: ['./rating-bar.component.css']
 })
 export class RatingBarComponent implements OnInit, OnChanges {
+  test:number = 1;
   @Input()
   max = 10;
   @Input()
@@ -14,15 +15,16 @@ export class RatingBarComponent implements OnInit, OnChanges {
   @Input()
   showRatingValue = true;
 
-  @Output()
-  rateChange = new EventEmitter<number>();
+  @Output() rateChange = new EventEmitter<number>();
 
   ratingUnits: Array<IRatingUnit> = [];
 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
+
     if ('max' in changes) {
+      this.test += 1;
       let max = changes.max.currentValue;
       max = typeof max === 'undefined' ? 5 : max;
       this.max = max;
